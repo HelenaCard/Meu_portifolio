@@ -25,6 +25,8 @@ O projeto foi organizado seguindo as melhores práticas de desenvolvimento web:
 *   **Efeito Typing**: Texto de introdução que simula digitação.
 *   **Responsive Design**: Adaptado para dispositivos móveis e desktops.
 
+## Acesse o projeto aqui: https://helenacard.github.io/Meu_portifolio/
+
 ## 📄 Licença
 
 © 2025 Helena Cardoso — Bits Neurais.
