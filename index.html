@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helena Cardoso | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="grid-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <canvas id="particles"></canvas><!-- Cursor trail dots -->
+  <div id="cursor-trail"></div>
+  <div class="portfolio-scroll" id="mainScroll"><!-- NAV -->
+   <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar" style="background:rgba(5,10,20,0.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,170,255,0.06)">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"><a href="#hero" class="text-lg font-bold" style="font-family:'JetBrains Mono';color:#00aaff">HC<span style="color:rgba(0,170,255,0.4)">_</span></a>
+     <div class="hidden sm:flex gap-8 text-sm font-medium"><a href="#hero" class="nav-link active" data-section="hero">Início</a> <a href="#about" class="nav-link" data-section="about">Sobre</a> <a href="#skills" class="nav-link" data-section="skills">Habilidades</a> <a href="#tech" class="nav-link" data-section="tech">Tecnologia</a> <a href="#projects" class="nav-link" data-section="projects">Projetos</a> <a href="#education" class="nav-link" data-section="education">Educação</a> <a href="#engineering" class="nav-link" data-section="engineering">Engenharia</a> <a href="#contact" class="nav-link" data-section="contact">Contato</a>
+     </div><button id="mobileMenuBtn" class="sm:hidden text-white/70" aria-label="Menu"> <i data-lucide="menu" style="width:24px;height:24px"></i> </button>
+    </div><!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden sm:hidden px-6 pb-4 flex flex-col gap-3 text-sm"><a href="#hero" class="nav-link">Início</a> <a href="#about" class="nav-link">Sobre</a> <a href="#skills" class="nav-link">Habilidades</a> <a href="#tech" class="nav-link">Tecnologia</a> <a href="#projects" class="nav-link">Projetos</a> <a href="#education" class="nav-link">Educação</a> <a href="#engineering" class="nav-link">Engenharia</a> <a href="#contact" class="nav-link">Contato</a>
+    </div>
+   </nav><!-- HERO -->
+   <section id="hero" class="relative z-10 min-h-full flex items-center justify-center px-6 pt-20 pb-16">
+    <div class="text-center max-w-3xl"><!-- Avatar with pulse - Cartoon character -->
+     <div class="relative inline-block mb-8">
+      <div class="absolute inset-0 rounded-full pulse-ring" style="border:2px solid rgba(0,170,255,0.3)"></div>
+      <svg class="w-28 h-28" viewbox="0 0 200 280" xmlns="http://www.w3.org/2000/svg"><!-- Head --> <circle cx="100" cy="70" r="50" fill="#C9A876" /> <!-- Curly hair left --> <circle cx="60" cy="35" r="18" fill="#6B4423" /> <circle cx="50" cy="50" r="16" fill="#6B4423" /> <circle cx="45" cy="70" r="15" fill="#6B4423" /> <!-- Curly hair right --> <circle cx="140" cy="35" r="18" fill="#6B4423" /> <circle cx="150" cy="50" r="16" fill="#6B4423" /> <circle cx="155" cy="70" r="15" fill="#6B4423" /> <!-- Curly hair top --> <circle cx="85" cy="20" r="16" fill="#6B4423" /> <circle cx="100" cy="15" r="17" fill="#6B4423" /> <circle cx="115" cy="20" r="16" fill="#6B4423" /> <!-- Eyes --> <circle cx="85" cy="65" r="6" fill="#333" /> <circle cx="115" cy="65" r="6" fill="#333" /> <circle cx="87" cy="63" r="2.5" fill="#fff" /> <circle cx="117" cy="63" r="2.5" fill="#fff" /> <!-- Smile --> <path d="M 90 80 Q 100 88 110 80" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round" /> <!-- Neck --> <rect x="90" y="115" width="20" height="15" fill="#C9A876" /> <!-- Shirt/Body --> <rect x="70" y="130" width="60" height="70" fill="#0066ff" rx="5" /> <!-- Arms --> <rect x="50" y="140" width="20" height="50" fill="#C9A876" rx="10" /> <rect x="130" y="140" width="20" height="50" fill="#C9A876" rx="10" /> <!-- Hands --> <circle cx="55" cy="195" r="12" fill="#C9A876" /> <circle cx="145" cy="195" r="12" fill="#C9A876" />
+      </svg>
+     </div>
+     <p class="text-sm font-medium tracking-[0.3em] uppercase mb-4" style="color:#00aaff;font-family:'JetBrains Mono'">Portfólio</p>
+     <h1 id="heroName" class="text-5xl sm:text-7xl font-800 mb-4 glow-text" style="color:#e8f0ff;line-height:1.1">Helena Cardoso</h1>
+     <div class="h-8 mb-6"><span id="typingText" class="text-xl sm:text-2xl font-300" style="color:rgba(200,220,255,0.6);font-family:'JetBrains Mono'"></span> <span class="typing-cursor"></span>
+     </div>
+     <p id="heroSubtitle" class="text-lg mb-10 max-w-xl mx-auto" style="color:rgba(200,220,255,0.5)">Apaixonada por Tecnologia e Engenharia</p>
+     <div class="flex gap-4 justify-center flex-wrap"><a href="#tech" class="px-8 py-3 rounded-xl font-600 text-sm transition-all duration-300 hover:shadow-lg" style="background:linear-gradient(135deg,#0044cc,#0077ff);color:#fff;box-shadow:0 4px 20px rgba(0,80,255,0.25)"> 💻 Tecnologia </a> <a href="#engineering" class="px-8 py-3 rounded-xl font-600 text-sm transition-all duration-300 hover:shadow-lg" style="background:linear-gradient(135deg,#cc4400,#ff7700);color:#fff;box-shadow:0 4px 20px rgba(255,120,0,0.25)"> ⚙️ Engenharia </a>
+     </div><!-- Social row -->
+     <div class="flex gap-3 justify-center mt-10"><a href="https://github.com/HelenaCard" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub"><i data-lucide="github" style="width:20px;height:20px"></i></a> <a href="https://www.linkedin.com/in/helena-cardoso-9b2b9b200" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn"><i data-lucide="linkedin" style="width:20px;height:20px"></i></a> <a href="https://www.instagram.com/bitsneurais/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram"><i data-lucide="instagram" style="width:20px;height:20px"></i></a> <a href="https://www.linkedin.com/showcase/bits-neurais-tech/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="social-btn" title="Bits Neurais Tech"><i data-lucide="cpu" style="width:20px;height:20px"></i></a>
+     </div>
+    </div>
+   </section><!-- ABOUT -->
+   <section id="about" class="relative z-10 px-6 py-24">
+    <div class="max-w-4xl mx-auto reveal">
+     <div class="glass-card rounded-2xl p-8 sm:p-12" style="border-color:rgba(255,120,0,0.12);background:rgba(20,15,10,0.6)">
+      <div class="flex items-center gap-3 mb-6">
+       <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(0,170,255,0.12)"><i data-lucide="user" style="width:20px;height:20px;color:#00aaff"></i>
+       </div>
+       <h2 class="text-2xl font-700" style="color:#e8f0ff">Sobre Mim</h2>
+      </div>
+      <p id="aboutText" class="text-base leading-relaxed mb-8" style="color:rgba(200,220,255,0.6)">Sou uma profissional apaixonada por tecnologia e engenharia, com foco em desenvolvimento, inovação e aprendizado contínuo. Sou criadora do projeto Bits Neurais, onde compartilho conteúdos sobre tecnologia, programação e inteligência artificial, promovendo o acesso ao conhecimento e incentivando novos aprendizados. Atuo como embaixadora da Digital Innovation One, apoiando a divulgação de bootcamps gratuitos e iniciativas educacionais acessíveis. Também produzo conteúdos para o Studying Engineering Work, onde compartilho conhecimentos voltados à engenharia e inovação tecnológica. Busco constantemente evoluir minhas habilidades e desenvolver projetos que utilizem a tecnologia como ferramenta de transformação e impacto positivo.</p>
+      <div class="flex flex-wrap gap-2"><span class="tag-pill">Desenvolvimento</span> <span class="tag-pill">Inteligência Artificial</span> <span class="tag-pill">Tecnologia</span> <span class="tag-pill">Inovação</span> <span class="tag-pill">Bits Neurais</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- SKILLS -->
+   <section id="skills" class="relative z-10 px-6 py-24">
+    <div class="max-w-4xl mx-auto">
+     <div class="flex items-center gap-3 mb-10 reveal">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(0,170,255,0.12)"><i data-lucide="zap" style="width:20px;height:20px;color:#00aaff"></i>
+      </div>
+      <h2 id="skillsTitle" class="text-2xl font-700" style="color:#e8f0ff">Habilidades</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 gap-4" id="skillsGrid"><!-- Skills populated by JS -->
+     </div>
+    </div>
+   </section><!-- TECH SECTION -->
+   <section id="tech" class="relative z-10 px-6 py-24">
+    <div class="max-w-4xl mx-auto reveal">
+     <div class="glass-card rounded-2xl p-8 sm:p-12">
+      <div class="flex items-center gap-3 mb-6">
+       <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(0,170,255,0.12)"><i data-lucide="code" style="width:20px;height:20px;color:#00aaff"></i>
+       </div>
+       <h2 id="techTitle" class="text-2xl font-700" style="color:#e8f0ff">Tecnologia &amp; Desenvolvimento</h2>
+      </div>
+      <p id="techDesc" class="text-base leading-relaxed mb-8" style="color:rgba(200,220,255,0.6)">Apaixonada por transformar ideias em soluções digitais inovadoras. Criadora do projeto Bits Neurais, onde compartilho conteúdo sobre tecnologia, IA e programação. Busco sempre aprender, criar e contribuir para o avanço da tecnologia.</p>
+      <div class="flex flex-wrap gap-3 mb-8"><span class="tag-pill">Desenvolvimento</span> <span class="tag-pill">Inteligência Artificial</span> <span class="tag-pill">Full Stack</span> <span class="tag-pill">Inovação</span>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4"><a href="https://www.linkedin.com/showcase/bits-neurais-tech/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:rgba(0,170,255,0.08);border:1px solid rgba(0,170,255,0.2);color:#00aaff;text-decoration:none"> <i data-lucide="cpu" style="width:18px;height:18px"></i> Bits Neurais </a> <a href="https://github.com/HelenaCard" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:rgba(0,170,255,0.08);border:1px solid rgba(0,170,255,0.2);color:#00aaff;text-decoration:none"> <i data-lucide="github" style="width:18px;height:18px"></i> Meus Projetos </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- PROJECTS -->
+   <section id="projects" class="relative z-10 px-6 py-24">
+    <div class="max-w-5xl mx-auto">
+     <div class="flex items-center gap-3 mb-10 reveal">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(0,170,255,0.12)"><i data-lucide="folder-open" style="width:20px;height:20px;color:#00aaff"></i>
+      </div>
+      <h2 id="projectsTitle" class="text-2xl font-700" style="color:#e8f0ff">Projetos</h2>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="projectsGrid"><!-- Projects populated by JS -->
+     </div>
+     <div class="text-center mt-8 reveal"><a href="https://github.com/HelenaCard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-500 transition-all duration-300" style="border:1px solid rgba(0,170,255,0.2);color:#00aaff;background:rgba(0,170,255,0.05)"> <i data-lucide="github" style="width:16px;height:16px"></i> Ver todos no GitHub </a>
+     </div>
+    </div>
+   </section><!-- EDUCATION -->
+   <section id="education" class="relative z-10 px-6 py-24">
+    <div class="max-w-4xl mx-auto">
+     <div class="flex items-center gap-3 mb-10 reveal">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(0,170,255,0.12)"><i data-lucide="book-open" style="width:20px;height:20px;color:#00aaff"></i>
+      </div>
+      <h2 id="educationTitle" class="text-2xl font-700" style="color:#e8f0ff">Educação &amp; Divulgação</h2>
+     </div>
+     <div class="glass-card rounded-2xl p-8 sm:p-12 reveal">
+      <p id="educationDesc" class="text-base leading-relaxed mb-8" style="color:rgba(200,220,255,0.6)">Sou embaixadora da Digital Innovation One (DIO), uma plataforma inovadora em educação tecnológica. Trabalho na divulgação de bootcamps gratuitos e programas educacionais acessíveis, democratizando o acesso ao aprendizado de qualidade. Meu objetivo é inspirar e capacitar novas gerações a descobrir oportunidades na tecnologia.</p>
+      <div class="flex flex-wrap gap-3 mb-8"><span class="tag-pill">Educação</span> <span class="tag-pill">Digital Innovation One</span> <span class="tag-pill">Bootcamps</span> <span class="tag-pill">Divulgação</span>
+      </div>
+      <div class="flex gap-4 flex-wrap"><a href="https://www.dio.me/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:rgba(0,170,255,0.08);border:1px solid rgba(0,170,255,0.2);color:#00aaff;text-decoration:none"> <i data-lucide="book-open" style="width:18px;height:18px"></i> Digital Innovation One </a> <a href="https://www.dio.me/sign-up?ref=AF6KUJ05UYGT" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:rgba(0,170,255,0.08);border:1px solid rgba(0,170,255,0.2);color:#00aaff;text-decoration:none"> <i data-lucide="log-in" style="width:18px;height:18px"></i> Se Inscreva Aqui </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- ENGINEERING -->
+   <section id="engineering" class="relative z-10 px-6 py-24">
+    <div class="max-w-4xl mx-auto">
+     <div class="flex items-center gap-3 mb-10 reveal">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(255,120,0,0.12)"><i data-lucide="briefcase" style="width:20px;height:20px;color:#ff7700"></i>
+      </div>
+      <h2 class="text-2xl font-700" style="color:#e8f0ff">Engenharia &amp; Inovação</h2>
+     </div><!-- Studying Engineering Work -->
+     <div class="reveal mb-8">
+      <div class="glass-card rounded-2xl p-8 sm:p-12" style="border-color:rgba(255,120,0,0.12)">
+       <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(255,120,0,0.12)"><i data-lucide="briefcase" style="width:20px;height:20px;color:#ff7700"></i>
+        </div>
+        <h3 class="text-xl font-700" style="color:#e8f0ff">Studying Engineering Work</h3>
+       </div>
+       <p class="text-base leading-relaxed mb-8" style="color:rgba(200,220,255,0.6)">Um espaço dedicado ao compartilhamento de conteúdos sobre engenharia e inovação tecnológica, conectando profissionais e entusiastas. Aqui compartilho conhecimentos práticos, projetos e insights sobre as aplicações reais da engenharia moderna.</p>
+       <div class="flex flex-wrap gap-3 mb-8"><span class="tag-pill">Engenharia</span> <span class="tag-pill">Inovação</span> <span class="tag-pill">Tecnologia</span> <span class="tag-pill">Comunidade</span>
+       </div>
+       <div class="flex gap-4 flex-wrap"><a href="https://www.linkedin.com/company/studying-engineering-work/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:rgba(255,120,0,0.08);border:1px solid rgba(255,120,0,0.2);color:#ff7700;text-decoration:none"> <i data-lucide="linkedin" style="width:18px;height:18px"></i> LinkedIn </a> <a href="https://www.instagram.com/stud_yengwork/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:rgba(255,120,0,0.08);border:1px solid rgba(255,120,0,0.2);color:#ff7700;text-decoration:none"> <i data-lucide="instagram" style="width:18px;height:18px"></i> Instagram </a>
+       </div>
+      </div>
+     </div><!-- RPNSAR Energia -->
+     <div class="reveal">
+      <div class="glass-card rounded-2xl p-8 sm:p-12" style="border-color:rgba(34,197,94,0.12);background:rgba(20,30,20,0.6)">
+       <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(34,197,94,0.12)"><i data-lucide="leaf" style="width:20px;height:20px;color:#22c55e"></i>
+        </div>
+        <h3 class="text-xl font-700" style="color:#e8f0ff">RPNSAR Energia</h3>
+       </div>
+       <p class="text-base leading-relaxed mb-8" style="color:rgba(200,220,255,0.6)">Como voluntária na comunicação do Movimento RPNSAR Energia, trabalho para disseminar conhecimento sobre energia renovável, transição energética e sustentabilidade. Um movimento dedicado a transformar a forma como pensamos e utilizamos energia.</p>
+       <div class="flex flex-wrap gap-3 mb-8"><span class="tag-pill">Energia Renovável</span> <span class="tag-pill">Sustentabilidade</span> <span class="tag-pill">Transição Energética</span> <span class="tag-pill">Voluntariado</span>
+       </div>
+       <div class="flex gap-4 flex-wrap"><a href="https://www.instagram.com/rpnsarenergia/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);color:#22c55e;text-decoration:none"> <i data-lucide="instagram" style="width:18px;height:18px"></i> RPNSAR Energia </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- CONTACT -->
+   <section id="contact" class="relative z-10 px-6 py-24 pb-32">
+    <div class="max-w-2xl mx-auto reveal">
+     <div class="glass-card rounded-2xl p-8 sm:p-12 text-center">
+      <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-6" style="background:rgba(0,170,255,0.12)"><i data-lucide="send" style="width:24px;height:24px;color:#00aaff"></i>
+      </div>
+      <h2 id="contactTitle" class="text-2xl font-700 mb-3" style="color:#e8f0ff">Acompanhe Aqui</h2>
+      <p class="mb-8" style="color:rgba(200,220,255,0.5)">Conecte comigo e acompanhe meus projetos</p>
+      <div class="flex flex-wrap gap-4 justify-center"><a href="https://www.linkedin.com/in/helena-cardoso-9b2b9b200" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-600 transition-all duration-300" style="background:linear-gradient(135deg,#0044cc,#0077ff);color:#fff;box-shadow:0 4px 20px rgba(0,80,255,0.25)"> <i data-lucide="linkedin" style="width:18px;height:18px"></i> LinkedIn </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="relative z-10 px-6 py-8 text-center" style="border-top:1px solid rgba(0,170,255,0.06)">
+    <p class="text-xs" style="color:rgba(200,220,255,0.3);font-family:'JetBrains Mono'">© 2025 Helena Cardoso — Bits Neurais</p>
+   </footer>
+  </div>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ee86d9495da589e',t:'MTc3NjU2NTIwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
