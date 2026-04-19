@@ -137,41 +137,25 @@ function setupNavHighlight() {
 }
 
 // Smooth scroll for nav links
-function setupSmoothScroll() {
-  const scroller = document.getElementById('mainScroll');
-  if (!scroller) return;
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      document.getElementById('mainScroll').scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+    }
+    document.getElementById('mobileMenu').classList.add('hidden');
+  });
+});
 
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = a.getAttribute('href');
-      const target = document.querySelector(targetId);
-      const mobileMenu = document.getElementById('mobileMenu');
-
-      if (target) {
-        // Cálculo mais preciso da posição dentro do container de scroll
-        const targetPosition = target.getBoundingClientRect().top + scroller.scrollTop - scroller.getBoundingClientRect().top;
-        scroller.scrollTo({ top: targetPosition - 70, behavior: 'smooth' });
-      }
-      
-      if (mobileMenu) {
-        mobileMenu.classList.add('hidden');
-      }
-    });
+// Mobile menu
+const mobileBtn = document.getElementById('mobileMenuBtn');
+if (mobileBtn) {
+  mobileBtn.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
   });
 }
 
-// Mobile menu
-function setupMobileMenu() {
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (mobileBtn && mobileMenu) {
-    mobileBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
-}
- 
 // Particle system
 function initParticles() {
   const canvas = document.getElementById('particles');
@@ -263,8 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupReveal();
   setupSkillBars();
   setupNavHighlight();
-  setupSmoothScroll();
-  setupMobileMenu();
   initParticles();
   initCursorTrail();
   setTimeout(typeEffect, 800);
