@@ -7,8 +7,8 @@ Este é o repositório do portfólio pessoal de Helena Cardoso, criadora do proj
 O projeto foi organizado seguindo as melhores práticas de desenvolvimento web:
 
 *   `portifolio.html`: O arquivo principal com a estrutura HTML.
-*   `/css/style.css`: Estilos customizados, incluindo efeitos de vidro (Glassmorphism) e animações.
-*   `/js/script.js`: Lógica de interatividade, sistema de partículas e animações de scroll.
+*   `style.css`: Estilos customizados, incluindo efeitos de vidro (Glassmorphism) e animações.
+*   `script.js`: Lógica de interatividade, sistema de partículas e animações de scroll.
 
 ## 🛠️ Tecnologias Utilizadas
 
